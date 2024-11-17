@@ -28,6 +28,11 @@ public class TwitterAPI {
             throw new IllegalArgumentException("Hashtag cannot be null or empty.");
         }
 
+        // Twitter API enforces a maxResults value between 10 and 100
+        if (maxResults < 10) {
+            maxResults = 10; // Set minimum to 10 to satisfy API restrictions
+        }
+
         String encodedQuery = URLEncoder.encode("#" + hashtag.trim(), StandardCharsets.UTF_8.toString());
         String apiUrl = String.format("%s?query=%s&max_results=%d", SEARCH_URL, encodedQuery, maxResults);
         System.out.println("Requesting API URL: " + apiUrl);

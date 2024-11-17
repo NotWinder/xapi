@@ -44,6 +44,9 @@ public class TwitterCLI {
                         setBearerToken();
                         break;
                     case "4":
+                        TweetDatabase.displayAllTweets();
+                        break;
+                    case "5":
                         running = false;
                         System.out.println("Goodbye!");
                         break;
@@ -79,9 +82,10 @@ public class TwitterCLI {
         System.out.println("1. Fetch Latest Tweets");
         System.out.println("2. Change Hashtag");
         System.out.println("3. Set/Change Bearer Token");
-        System.out.println("4. Exit");
+        System.out.println("4. Display Stored Tweets from Database");
+        System.out.println("5. Exit");
         System.out.println("=================================");
-        System.out.print("Enter your choice (1-4): ");
+        System.out.print("Enter your choice (1-5): ");
     }
 
     private void fetchAndDisplayTweets() {
